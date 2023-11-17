@@ -35,7 +35,9 @@ jobs:
           name: Build Docker image
           command: |
             cd /app
-            docker build -t harish492/test_docker:v1 --file Dockerfile --build-arg DOCKER_API_VERSION=1.40 .
+            set DOCKER_BUILDKIT=0
+            set COMPOSE_DOCKER_CLI_BUILD=0
+            docker build -t harish492/test_docker:v1 --file Dockerfile .
 
       - run:
           name: Push Docker image
