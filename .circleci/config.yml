@@ -19,7 +19,7 @@ jobs:
             pytest
 
       - persist_to_workspace:
-          root: /app
+          root: .
           paths:
             - .
 
