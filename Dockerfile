@@ -1,4 +1,4 @@
-# Use the official Python image from the Docker Hub
+# Use the official Python image from the Docker Hud
 FROM python:3.8
 
 # Set the working directory to /app
