@@ -34,7 +34,7 @@ jobs:
       - run:
           name: Build Docker image
           command: |
-            docker build -t harish492/test_docker:v1 .
+            docker build -t harish492/test_docker:v1 /app
 
       - run:
           name: Push Docker image
