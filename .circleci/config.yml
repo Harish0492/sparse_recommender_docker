@@ -34,6 +34,7 @@ jobs:
       - run:
           name: Build Docker image
           command: |
+            cd /app
             docker build -t harish492/test_docker:v1 .
 
       - run:
