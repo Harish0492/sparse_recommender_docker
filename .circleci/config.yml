@@ -3,10 +3,12 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: python:3.8
+      - image: cimg/python:3.8
 
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 19.03.13
 
       - run:
           name: Install dependencies
@@ -24,20 +26,10 @@ jobs:
             - .
 
   build_and_push_docker:
-    docker:
-      - image: docker:stable
-
-    steps:
-      - attach_workspace:
-          at: /app
-
       - run:
           name: Build Docker image
           command: |
-            cd /app
-            set DOCKER_BUILDKIT=0
-            set COMPOSE_DOCKER_CLI_BUILD=0
-            docker build -t harish492/test_docker:v1 --file Dockerfile .
+            docker build -t harish492/test_docker:v1 .
 
       - run:
           name: Push Docker image
